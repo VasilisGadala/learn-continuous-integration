@@ -10,7 +10,7 @@ on:
       - deploy
 
 jobs:
-  "run-data-tests":
+  "run-jest-tests":
     runs-on:
       - self-hosted
       - linux
@@ -21,8 +21,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Remove Existing Database
-        run: npx ts-node remove_db.ts
-
-      - name: Insert Sample Data
-        run: npx ts-node insert_sample_db.ts
+      - name: Run Tests
+        run: npm run test
